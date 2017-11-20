@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="AnimatedStateLayout">
+
+		<attr name="custom_empty" format="reference"/>
+		<attr name="custom_progress" format="reference"/>
+		<attr name="custom_error" format="reference"/>
+
+		<attr name="viewType" format="enum">
+			<enum name="Data" value="0"/>
+			<enum name="Empty" value="1"/>
+			<enum name="Progress" value="2"/>
+			<enum name="Error" value="3"/>
+		</attr>
+	</declare-styleable>
+</resources>

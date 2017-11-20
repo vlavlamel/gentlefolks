@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+	compileSdkVersion 26
+	defaultConfig {
+		applicationId "com.example.gentlefolks"
+		minSdkVersion 19
+		targetSdkVersion 26
+		versionCode 1
+		versionName "1.0"
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation 'com.android.support:appcompat-v7:26.1.0'
+	implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+	compile 'com.android.support:design:26.1.0'
+	testImplementation 'junit:junit:4.12'
+	androidTestImplementation 'com.android.support.test:runner:1.0.1'
+	androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+	compile 'com.jakewharton:butterknife:8.8.1'
+	annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+	compile 'com.github.johnkil.android-robototextview:robototextview:4.0.0'
+	compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+	//Firebase tools
+	def firebaseVersion = '11.6.0'
+	compile "com.google.firebase:firebase-core:$firebaseVersion"
+	compile "com.google.firebase:firebase-database:$firebaseVersion"
+	compile "com.google.firebase:firebase-storage:$firebaseVersion"
+	//Jackson
+	def jacksonVersion = '2.8.6'
+	compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+	compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+	compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+	//Retrofit
+	compile 'com.squareup.retrofit2:retrofit:2.3.0'
+	compile 'com.squareup.retrofit2:converter-jackson:2.3.0'
+	//Rx libraries
+	compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+	compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+	compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+	compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+	//Interceptor
+	compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+	//Picasso
+	compile 'com.squareup.picasso:picasso:2.5.2'
+}
+apply plugin: 'com.google.gms.google-services'

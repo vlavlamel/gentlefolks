@@ -1,0 +1,14 @@
+<resources>
+	<string name="app_name">gentlefolks</string>
+	<string name="head_title">Знать -\n значит влиять</string>
+	<string name="quote">«Шумиха не имеет никакого отношения\nк фильму. Она была затеяна людьми,
+которые фильм не видели и не собирались смотреть.»</string>
+	<string name="read_next">Читать далее…</string>
+
+	<!--AnimatedStateLayout-->
+	<string name="errorNetwork">Пожалуйста, проверьте подключение к интернету.
+    </string>
+	<string name="errorServerUnavailable">Что-то пошло не так. Подождите пару минут и попробуйте
+        снова
+    </string>
+</resources>

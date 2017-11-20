@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "407701136001",
+    "firebase_url": "https://gentlefolks-b1933.firebaseio.com",
+    "project_id": "gentlefolks-b1933",
+    "storage_bucket": "gentlefolks-b1933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407701136001:android:930af2c58be47682",
+        "android_client_info": {
+          "package_name": "com.example.gentlefolks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407701136001-r7nqn0rj6t9mbecrm33epkt6rraqrr4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gentlefolks",
+            "certificate_hash": "18110d2dd2f9b05652eec68a0c3529117c8926df"
+          }
+        },
+        {
+          "client_id": "407701136001-682060tg4mkcbb02clgl6h1a98022f5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu__saAlxOSnoi6ZUYp2L-D-tQ3uuBq10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407701136001-682060tg4mkcbb02clgl6h1a98022f5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
