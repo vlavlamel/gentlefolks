@@ -29,7 +29,7 @@ dependencies {
 	compile 'com.jakewharton:butterknife:8.8.1'
 	annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 	compile 'com.github.johnkil.android-robototextview:robototextview:4.0.0'
-	compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+	compile 'com.github.siyamed:android-shape-imageview:0.9.3'
 	//Firebase tools
 	def firebaseVersion = '11.6.0'
 	compile "com.google.firebase:firebase-core:$firebaseVersion"
@@ -52,5 +52,11 @@ dependencies {
 	compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 	//Picasso
 	compile 'com.squareup.picasso:picasso:2.5.2'
+	//Dagger
+	def daggerVersion = '2.12'
+	compile "com.google.dagger:dagger-android:$daggerVersion"
+	compile "com.google.dagger:dagger-android-support:$daggerVersion"
+	annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+	annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 }
 apply plugin: 'com.google.gms.google-services'

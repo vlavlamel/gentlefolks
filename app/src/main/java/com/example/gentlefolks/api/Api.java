@@ -1,6 +1,6 @@
 package com.example.gentlefolks.api;
 
-import com.example.gentlefolks.ui.mainScreen.OpinionMain;
+import com.example.gentlefolks.presentation.mainScreen.opinionslist.OpinionMain;
 
 import java.util.List;
 
