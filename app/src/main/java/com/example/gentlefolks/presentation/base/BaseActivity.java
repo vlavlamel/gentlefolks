@@ -21,14 +21,10 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public abstract class BaseActivity<E, M> extends AppCompatActivity
-	implements HasSupportFragmentInjector {
+public abstract class BaseActivity<E, M> extends AppCompatActivity {
 
 	@Inject
 	EventModelPresenter<E, M> presenter;
-
-	@Inject
-	DispatchingAndroidInjector<Fragment> supportFragmentInjector;
 
 	private ObservableEmitter<E> eventEmitter;
 
@@ -102,11 +98,6 @@ public abstract class BaseActivity<E, M> extends AppCompatActivity
 	protected void onDestroy() {
 		super.onDestroy();
 		if (isFinishing()) presenter.clearSubscriptions();
-	}
-
-	@Override
-	public AndroidInjector<Fragment> supportFragmentInjector() {
-		return supportFragmentInjector;
 	}
 
 	protected void addDisposable(Disposable sub) {

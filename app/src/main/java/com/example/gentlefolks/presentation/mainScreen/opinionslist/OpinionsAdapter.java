@@ -19,9 +19,9 @@ import butterknife.ButterKnife;
 public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHolder> {
 
 	private List<OpinionMain> listOpinions;
-	private View.OnClickListener mOnClickListener;
+	private OpinionsClickListener mOnClickListener;
 
-	public OpinionsAdapter(View.OnClickListener clickListener) {
+	public OpinionsAdapter(OpinionsClickListener clickListener) {
 		mOnClickListener = clickListener;
 	}
 
@@ -48,7 +48,7 @@ public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHo
 		else return listOpinions.size();
 	}
 
-	class ViewHolder extends RecyclerView.ViewHolder {
+	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 		@BindView(R.id.item_main_image)
 		ImageView imageview;
@@ -59,7 +59,7 @@ public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHo
 		public ViewHolder(View view) {
 			super(view);
 			ButterKnife.bind(this, view);
-			view.setOnClickListener(mOnClickListener);
+			view.setOnClickListener(this);
 		}
 
 		public void onBind(int position) {
@@ -77,6 +77,11 @@ public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHo
 					}
 				});
 			nameview.setText(listOpinions.get(position).hashtag);
+		}
+
+		@Override
+		public void onClick(View view) {
+			mOnClickListener.onClick(listOpinions.get(getAdapterPosition()).opinionId, listOpinions.get(getAdapterPosition()).hashtag, listOpinions.get(getAdapterPosition()).opinionBackground);
 		}
 	}
 }

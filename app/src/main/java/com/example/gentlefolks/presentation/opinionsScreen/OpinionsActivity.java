@@ -10,18 +10,18 @@ import android.widget.ImageView;
 
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.example.gentlefolks.R;
+import com.example.gentlefolks.presentation.base.BaseActivity;
+import com.example.gentlefolks.presentation.mainScreen.opinionslist.OpinionsGridFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.functions.Consumer;
 
-/**
- * Created by vl.melnikov on 19.11.17.
- */
-
-public class OpinionsActivity extends AppCompatActivity {
+public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiModel> {
 
 	@BindView(R.id.opinions_name)
 	RobotoTextView mOpinionsName;
@@ -32,6 +32,7 @@ public class OpinionsActivity extends AppCompatActivity {
 	@BindView(R.id.toolbar)
 	Toolbar mToolbar;
 
+	private OpinionAdapter adapter;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,16 +40,24 @@ public class OpinionsActivity extends AppCompatActivity {
 		setContentView(R.layout.activty_opinions);
 		ButterKnife.bind(this);
 		RobotoTextView textView = mToolbar.findViewById(R.id.title);
-		textView.setText("#искусство");
+		textView.setText(getIntent().getStringExtra(OpinionsGridFragment.HASHTAG_KEY));
 		setSupportActionBar(mToolbar);
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-		OpinionAdapter adapter = new OpinionAdapter();
+		adapter = new OpinionAdapter();
 		mRecyclerView.setAdapter(adapter);
-		List<Opinion> opinions = new ArrayList<>();
-		Opinion opinion1 = new Opinion("Антон Долин", getString(R.string.quote), R.drawable.anton, "журналист, кинокритик", "300");
-		Opinion opinion2 = new Opinion("сукин сынович", "дохуя дохуя дохуя текста дохуя дохуя дохуя текста дохуя дохуя дохуя текста дохуя дохуя дохуя текстадохуя дохуя дохуя текста ", R.drawable.ic_group, "пидар", "-300");
-		opinions.add(opinion1);
-		opinions.add(opinion2);
-		adapter.setData(opinions);
+		sendEvent(new OpinionUiEvent(getIntent().getStringExtra(OpinionsGridFragment.OPINION_ID_KEY)));
+		Picasso.with(this)
+			.load(getIntent().getStringExtra(OpinionsGridFragment.IMAGE_KEY))
+			.into(mOpinionsPicture);
+	}
+
+	@Override
+	protected Consumer<OpinionUiModel> getUIModelAction() {
+		return new Consumer<OpinionUiModel>() {
+			@Override
+			public void accept(OpinionUiModel opinionUiModel) throws Exception {
+				adapter.setData(opinionUiModel.getOpinionList());
+			}
+		};
 	}
 }

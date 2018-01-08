@@ -28,7 +28,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, OpinionsFragmentUiModel> implements View.OnClickListener {
+public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, OpinionsFragmentUiModel> implements OpinionsClickListener {
+
+	public static final String OPINION_ID_KEY = "opinionID";
+	public static final String HASHTAG_KEY = "hashtag";
+	public static final String IMAGE_KEY = "iamge";
 
 	@BindView(R.id.recyclerView)
 	RecyclerView mRecyclerView;
@@ -64,8 +68,11 @@ public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, 
 	}
 
 	@Override
-	public void onClick(View view) {
+	public void onClick(String opinion_id, String title, String imageUrl) {
 		Intent intent = new Intent(getActivity(), OpinionsActivity.class);
+		intent.putExtra(OPINION_ID_KEY, opinion_id);
+		intent.putExtra(HASHTAG_KEY, title);
+		intent.putExtra(IMAGE_KEY, imageUrl);
 		startActivity(intent);
 	}
 

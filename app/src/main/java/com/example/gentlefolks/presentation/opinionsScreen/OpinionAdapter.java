@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.example.gentlefolks.R;
 import com.github.siyamed.shapeimageview.CircularImageView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -67,11 +69,23 @@ public class OpinionAdapter extends RecyclerView.Adapter<OpinionAdapter.ViewHold
 
 		public void onBind(int position) {
 			Opinion opinion = listOpinions.get(position);
-			mAuthorsName.setText(opinion.getAuthor());
-			mQuote.setText(opinion.getOpinion());
-			mProfileImage.setImageResource(opinion.getImage_profile());
-			mQuantityLikes.setText(opinion.getLikes());
-			mAuthorPost.setText(opinion.getPost());
+			mAuthorsName.setText(opinion.authorName);
+			mQuote.setText(opinion.quote);
+			Picasso.with(mProfileImage.getContext())
+				.load(opinion.profilePhoto)
+				.into(mProfileImage, new Callback() {
+					@Override
+					public void onSuccess() {
+
+					}
+
+					@Override
+					public void onError() {
+
+					}
+				});
+			mQuantityLikes.setText("300");
+			mAuthorPost.setText(opinion.authorPost);
 		}
 
 		@OnClick(R.id.like)

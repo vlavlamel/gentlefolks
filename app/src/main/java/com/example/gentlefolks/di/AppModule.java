@@ -4,6 +4,9 @@ import com.example.gentlefolks.api.ApiFactory;
 import com.example.gentlefolks.di.scope.ActivityScope;
 import com.example.gentlefolks.presentation.mainScreen.MainActivity;
 import com.example.gentlefolks.presentation.mainScreen.di.MainActivityModule;
+import com.example.gentlefolks.presentation.opinionsScreen.OpinionPresenter;
+import com.example.gentlefolks.presentation.opinionsScreen.OpinionsActivity;
+import com.example.gentlefolks.presentation.opinionsScreen.di.OpinionModule;
 
 import javax.inject.Singleton;
 
@@ -24,5 +27,9 @@ public abstract class AppModule {
 	@ActivityScope
 	@ContributesAndroidInjector(modules = {MainActivityModule.class})
 	abstract MainActivity contributeMainActivityInjector();
+
+	@ActivityScope
+	@ContributesAndroidInjector(modules = {OpinionModule.class})
+	abstract OpinionsActivity contributeOpinionsActivityInjector();
 
 }

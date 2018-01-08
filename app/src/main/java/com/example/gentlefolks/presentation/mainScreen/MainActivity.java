@@ -9,13 +9,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.example.gentlefolks.R;
-import com.example.gentlefolks.presentation.base.BaseActivity;
+import com.example.gentlefolks.presentation.base.BaseActivityWithFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
 
-public class MainActivity extends BaseActivity<MainActivityUiEvent, MainActivityUiModel> {
+public class MainActivity extends BaseActivityWithFragment<MainActivityUiEvent, MainActivityUiModel> {
 
 	@BindView(R.id.tab_layout)
 	TabLayout mTabLayout;

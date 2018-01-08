@@ -29,7 +29,7 @@
 				android:layout_width="200sp"
 				android:layout_height="200dp"
 				android:scaleType="centerCrop"
-				android:src="@drawable/balerina"
+				tools:src="@drawable/balerina"
 				android:layout_gravity="center_horizontal"/>
 
 			<android.support.v7.widget.RecyclerView

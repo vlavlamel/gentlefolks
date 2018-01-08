@@ -24,6 +24,6 @@
 			android:id="@+id/item_main_image"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:scaleType="center" />
+			android:scaleType="centerCrop" />
 	</LinearLayout>
 </FrameLayout>
