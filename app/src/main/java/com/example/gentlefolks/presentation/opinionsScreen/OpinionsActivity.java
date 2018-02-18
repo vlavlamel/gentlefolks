@@ -23,10 +23,6 @@ import io.reactivex.functions.Consumer;
 
 public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiModel> {
 
-	@BindView(R.id.opinions_name)
-	RobotoTextView mOpinionsName;
-	@BindView(R.id.opinions_picture)
-	ImageView mOpinionsPicture;
 	@BindView(R.id.recyclerView)
 	RecyclerView mRecyclerView;
 	@BindView(R.id.toolbar)
@@ -46,9 +42,6 @@ public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiMode
 		adapter = new OpinionAdapter();
 		mRecyclerView.setAdapter(adapter);
 		sendEvent(new OpinionUiEvent(getIntent().getStringExtra(OpinionsGridFragment.OPINION_ID_KEY)));
-		Picasso.with(this)
-			.load(getIntent().getStringExtra(OpinionsGridFragment.IMAGE_KEY))
-			.into(mOpinionsPicture);
 	}
 
 	@Override
@@ -56,6 +49,9 @@ public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiMode
 		return new Consumer<OpinionUiModel>() {
 			@Override
 			public void accept(OpinionUiModel opinionUiModel) throws Exception {
+				Opinion header = new Opinion(getIntent().getStringExtra(OpinionsGridFragment.IMAGE_KEY), getIntent().getStringExtra(OpinionsGridFragment.TITLE_KEY));
+				opinionUiModel.getOpinionList()
+					.add(0, header);
 				adapter.setData(opinionUiModel.getOpinionList());
 			}
 		};

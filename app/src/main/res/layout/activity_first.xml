@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:background="@android:color/white"
-	android:orientation="vertical">
+	xmlns:tools="http://schemas.android.com/tools"
+	android:background="@android:color/white">
 
-	<com.devspark.robototextview.widget.RobotoTextView
-		android:layout_width="wrap_content"
+	<LinearLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		app:robotoTypeface="roboto_slab_bold"
-		android:gravity="center"
-		android:textColor="@android:color/black"
-		android:text="@string/head_title"
-		android:textSize="40sp" />
+		android:layout_centerInParent="true"
+		android:orientation="vertical">
 
-	<ImageView
-		android:layout_width="wrap_content"
-		android:layout_height="300dp"
-		android:layout_gravity="center"
-		android:layout_marginBottom="20dp"
-		android:src="@drawable/gentlefolk" />
+		<com.devspark.robototextview.widget.RobotoTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:text="Знать -"
+			android:textColor="@color/main_title_color"
+			android:textSize="40sp"
+			app:robotoTypeface="roboto_slab_bold" />
 
-	<Button
-		android:id="@+id/button_enter"
-		style="@style/BorderButtonWhite"
-		android:layout_width="220dp"
-		android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="20dp"
-		android:text="ХОЧУ ВСЕ ЗНАТЬ"
-		android:textAllCaps="true" />
+		<com.devspark.robototextview.widget.RobotoTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:text="значит влиять"
+			android:textColor="@color/main_title_color"
+			android:textSize="30sp"
+			app:robotoTypeface="roboto_slab_bold" />
 
-</LinearLayout>
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="300dp"
+			android:layout_gravity="center"
+			android:layout_marginBottom="20dp"
+			android:layout_marginTop="10dp"
+			android:src="@drawable/znat3" />
+
+		<Button
+			android:id="@+id/button_enter"
+			style="@style/BorderButtonWhite"
+			android:layout_width="220dp"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="20dp"
+			android:text="ХОЧУ ВСЕ ЗНАТЬ"
+			android:textAllCaps="true" />
+
+	</LinearLayout>
+</RelativeLayout>

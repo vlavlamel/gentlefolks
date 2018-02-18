@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,7 +33,8 @@ public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, 
 
 	public static final String OPINION_ID_KEY = "opinionID";
 	public static final String HASHTAG_KEY = "hashtag";
-	public static final String IMAGE_KEY = "iamge";
+	public static final String IMAGE_KEY = "image";
+	public static final String TITLE_KEY = "title";
 
 	@BindView(R.id.recyclerView)
 	RecyclerView mRecyclerView;
@@ -54,7 +56,7 @@ public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+		mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 		adapter = new OpinionsAdapter(this);
 		mRecyclerView.setAdapter(adapter);
 		sendEvent(new OpinionsFragmentUiEvent());
@@ -68,11 +70,12 @@ public class OpinionsGridFragment extends BaseFragment<OpinionsFragmentUiEvent, 
 	}
 
 	@Override
-	public void onClick(String opinion_id, String title, String imageUrl) {
+	public void onClick(String opinion_id, String hashtag, String imageUrl, String title) {
 		Intent intent = new Intent(getActivity(), OpinionsActivity.class);
 		intent.putExtra(OPINION_ID_KEY, opinion_id);
-		intent.putExtra(HASHTAG_KEY, title);
+		intent.putExtra(HASHTAG_KEY, hashtag);
 		intent.putExtra(IMAGE_KEY, imageUrl);
+		intent.putExtra(TITLE_KEY, title);
 		startActivity(intent);
 	}
 

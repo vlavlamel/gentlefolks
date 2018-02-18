@@ -6,24 +6,38 @@
 	android:id="@+id/item_main_container"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:layout_marginBottom="10dp"
+	android:layout_marginLeft="10dp"
+	android:layout_marginRight="10dp"
 	android:background="@drawable/rectangle_frame"
 	android:clickable="true">
 
-	<LinearLayout
+	<ImageView
+		android:id="@+id/item_main_image"
 		android:layout_width="match_parent"
 		android:layout_height="210dp"
-		android:orientation="vertical">
+		android:alpha="0.6"
+		android:scaleType="centerCrop" />
 
-		<com.devspark.robototextview.widget.RobotoTextView
-			android:id="@+id/item_main_name"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			tools:text="decriptions" />
+	<com.devspark.robototextview.widget.RobotoTextView
+		android:id="@+id/item_hashtag"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:textAllCaps="true"
+		android:textColor="@android:color/holo_red_dark"
+		tools:text="#искусство" />
 
-		<ImageView
-			android:id="@+id/item_main_image"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:scaleType="centerCrop" />
-	</LinearLayout>
+	<com.devspark.robototextview.widget.RobotoTextView
+		android:id="@+id/item_title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="10dp"
+		android:textAllCaps="true"
+		android:textColor="@android:color/black"
+		android:gravity="center"
+		app:robotoTypeface="roboto_bold"
+		tools:text="С чем связана шумиха вокруг Матильды?" />
+
 </FrameLayout>

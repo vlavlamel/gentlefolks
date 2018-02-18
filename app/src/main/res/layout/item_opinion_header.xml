@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="10dp"
+	android:orientation="vertical">
+
+	<ImageView
+		android:id="@+id/opinions_picture"
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		android:layout_gravity="center_horizontal"
+		android:alpha="0.6"
+		android:scaleType="centerCrop"
+		tools:src="@drawable/balerina" />
+
+	<com.devspark.robototextview.widget.RobotoTextView
+		android:id="@+id/opinions_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:gravity="center"
+		android:textColor="@android:color/black"
+		android:textSize="20dp"
+		app:robotoTypeface="roboto_medium"
+		tools:text="С чем связана шумиха вокруг Матильды?" />
+</RelativeLayout>

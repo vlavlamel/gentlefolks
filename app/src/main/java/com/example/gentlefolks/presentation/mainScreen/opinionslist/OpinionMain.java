@@ -12,5 +12,8 @@ public class OpinionMain {
 	public String opinionBackground;
 	@JsonProperty("opinion_id")
 	public String opinionId;
+	@JsonProperty("opinion_title")
+	public String opinionTitle;
+
 
 }

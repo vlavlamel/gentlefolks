@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.Application;
 
 
+import com.crashlytics.android.Crashlytics;
 import com.example.gentlefolks.di.DaggerAppComponent;
 
+import io.fabric.sdk.android.Fabric;
 import javax.inject.Inject;
 
 import dagger.android.DispatchingAndroidInjector;
@@ -19,6 +21,7 @@ public class GentlefolksApp extends Application implements HasActivityInjector {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		Fabric.with(this, new Crashlytics());
 		DaggerAppComponent.builder()
 			.create(this)
 			.inject(this);

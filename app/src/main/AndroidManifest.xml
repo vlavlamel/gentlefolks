@@ -30,6 +30,9 @@
 			android:parentActivityName=".presentation.mainScreen.MainActivity"
 			android:screenOrientation="portrait" />
 
-	</application>
+	    <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="84e9ebd8e5d0625715054027601f5448f9e127f4" />
+    </application>
 
 </manifest>

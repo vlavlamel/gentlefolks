@@ -6,6 +6,6 @@ package com.example.gentlefolks.presentation.mainScreen.opinionslist;
 
 public interface OpinionsClickListener {
 
-	void onClick(String opinion_id, String title, String imageUrl);
+	void onClick(String opinion_id, String hashtag, String imageUrl, String title);
 
 }

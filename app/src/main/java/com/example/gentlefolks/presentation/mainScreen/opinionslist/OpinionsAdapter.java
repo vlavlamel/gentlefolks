@@ -1,6 +1,7 @@
 package com.example.gentlefolks.presentation.mainScreen.opinionslist;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,14 +53,15 @@ public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHo
 
 		@BindView(R.id.item_main_image)
 		ImageView imageview;
-		@BindView(R.id.item_main_name)
-		RobotoTextView nameview;
+		@BindView(R.id.item_hashtag)
+		RobotoTextView hashtag;
+		@BindView(R.id.item_title)
+		RobotoTextView title;
 
 
 		public ViewHolder(View view) {
 			super(view);
 			ButterKnife.bind(this, view);
-			view.setOnClickListener(this);
 		}
 
 		public void onBind(int position) {
@@ -76,12 +78,18 @@ public class OpinionsAdapter extends RecyclerView.Adapter<OpinionsAdapter.ViewHo
 
 					}
 				});
-			nameview.setText(listOpinions.get(position).hashtag);
+			hashtag.setText(listOpinions.get(position).hashtag);
+			title.setText(listOpinions.get(position).opinionTitle);
+			if (!TextUtils.isEmpty(listOpinions.get(position).opinionId)) {
+				imageview.getRootView()
+					.setOnClickListener(this);
+			}
 		}
 
 		@Override
 		public void onClick(View view) {
-			mOnClickListener.onClick(listOpinions.get(getAdapterPosition()).opinionId, listOpinions.get(getAdapterPosition()).hashtag, listOpinions.get(getAdapterPosition()).opinionBackground);
+			OpinionMain opinionMain = listOpinions.get(getAdapterPosition());
+			mOnClickListener.onClick(opinionMain.opinionId, opinionMain.hashtag, opinionMain.opinionBackground, opinionMain.opinionTitle);
 		}
 	}
 }

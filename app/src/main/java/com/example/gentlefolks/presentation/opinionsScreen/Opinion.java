@@ -21,4 +21,16 @@ public class Opinion {
 	@JsonProperty("quote")
 	public String quote;
 
+	public transient int itemType;
+	public transient String pictureOpinion;
+	public transient String nameOpinion;
+
+	public Opinion() {
+	}
+
+	public Opinion(String pictureOpinion, String nameOpinion) {
+		this.pictureOpinion = pictureOpinion;
+		this.nameOpinion = nameOpinion;
+		itemType = 1;
+	}
 }
