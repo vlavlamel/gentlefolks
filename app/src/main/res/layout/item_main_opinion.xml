@@ -6,9 +6,9 @@
 	android:id="@+id/item_main_container"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginBottom="10dp"
 	android:layout_marginLeft="10dp"
 	android:layout_marginRight="10dp"
+	android:layout_marginTop="10dp"
 	android:background="@drawable/rectangle_frame"
 	android:clickable="true">
 
@@ -34,9 +34,9 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
 		android:layout_margin="10dp"
+		android:gravity="center"
 		android:textAllCaps="true"
 		android:textColor="@android:color/black"
-		android:gravity="center"
 		app:robotoTypeface="roboto_bold"
 		tools:text="С чем связана шумиха вокруг Матильды?" />
 

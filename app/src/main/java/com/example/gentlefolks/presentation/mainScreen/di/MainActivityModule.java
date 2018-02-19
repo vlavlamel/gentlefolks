@@ -9,6 +9,7 @@ import com.example.gentlefolks.presentation.mainScreen.MainActivity;
 import com.example.gentlefolks.presentation.mainScreen.MainActivityPresenter;
 import com.example.gentlefolks.presentation.mainScreen.MainActivityUiEvent;
 import com.example.gentlefolks.presentation.mainScreen.MainActivityUiModel;
+import com.example.gentlefolks.presentation.mainScreen.answerslist.AnswersFragment;
 import com.example.gentlefolks.presentation.mainScreen.opinionslist.OpinionsGridFragment;
 
 import dagger.Binds;
@@ -29,5 +30,9 @@ public abstract class MainActivityModule {
 	@FragmentScope
 	@ContributesAndroidInjector(modules = {OpinionsGridFragmentModule.class})
 	abstract OpinionsGridFragment contributeMainFragmentInjector();
+
+	@FragmentScope
+	@ContributesAndroidInjector(modules = {AnswersFragmentModule.class})
+	abstract AnswersFragment contributeAnswersFragmentInjector();
 
 }

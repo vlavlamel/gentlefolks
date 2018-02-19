@@ -36,16 +36,11 @@ public class MainActivity extends BaseActivityWithFragment<MainActivityUiEvent, 
 		mTabLayout.setupWithViewPager(mPager);
 	}
 
-	public void showMessage(){
-		Snackbar.make(mPager,"blya",Snackbar.LENGTH_SHORT).show();
-	}
-
 	@Override
 	protected Consumer<MainActivityUiModel> getUIModelAction() {
 		return new Consumer<MainActivityUiModel>() {
 			@Override
 			public void accept(MainActivityUiModel mainActivityUiModel) throws Exception {
-				showMessage();
 			}
 		};
 	}

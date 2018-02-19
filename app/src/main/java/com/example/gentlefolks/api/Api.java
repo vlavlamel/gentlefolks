@@ -1,5 +1,6 @@
 package com.example.gentlefolks.api;
 
+import com.example.gentlefolks.presentation.mainScreen.answerslist.Answer;
 import com.example.gentlefolks.presentation.mainScreen.opinionslist.OpinionMain;
 import com.example.gentlefolks.presentation.opinionsScreen.Opinion;
 
@@ -16,5 +17,8 @@ public interface Api {
 
 	@GET("opinions/{opinion_id}.json")
 	Observable<List<Opinion>> opinionList(@Path("opinion_id") String opinion_id);
+
+	@GET("answers_list.json")
+	Observable<List<Answer>> answerList();
 
 }

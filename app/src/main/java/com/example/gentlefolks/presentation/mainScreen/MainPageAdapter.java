@@ -16,11 +16,11 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		switch (position){
+		switch (position) {
 			case 0:
 				return OpinionsGridFragment.getInstance();
 			case 1:
-				return new AnswersFragment();
+				return AnswersFragment.getInstance();
 			default:
 				return null;
 		}

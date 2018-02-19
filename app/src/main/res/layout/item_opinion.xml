@@ -18,7 +18,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:orientation="vertical"
-			android:layout_gravity="bottom">
+			android:layout_gravity="center_vertical">
 
 			<com.github.siyamed.shapeimageview.CircularImageView
 				android:id="@+id/profile_image"
