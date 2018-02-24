@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.gentlefolks.di.scope.ActivityScope;
 import com.example.gentlefolks.di.scope.FragmentScope;
 import com.example.gentlefolks.presentation.base.EventModelPresenter;
+import com.example.gentlefolks.presentation.details.DetailsFragment;
+import com.example.gentlefolks.presentation.details.di.DetailsModule;
 import com.example.gentlefolks.presentation.mainScreen.MainActivity;
 import com.example.gentlefolks.presentation.mainScreen.MainActivityPresenter;
 import com.example.gentlefolks.presentation.mainScreen.MainActivityUiEvent;
@@ -34,5 +36,9 @@ public abstract class MainActivityModule {
 	@FragmentScope
 	@ContributesAndroidInjector(modules = {AnswersFragmentModule.class})
 	abstract AnswersFragment contributeAnswersFragmentInjector();
+
+	@FragmentScope
+	@ContributesAndroidInjector(modules = {DetailsModule.class})
+	abstract DetailsFragment contributeDetailsFragmentInjector();
 
 }

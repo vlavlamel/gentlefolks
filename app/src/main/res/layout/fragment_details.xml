@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/main_background"
+	android:clickable="true">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<include layout="@layout/toolbar" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="10dp"
+				android:orientation="horizontal">
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_marginStart="5dp"
+					android:orientation="vertical">
+
+					<com.github.siyamed.shapeimageview.CircularImageView
+						android:id="@+id/profile_image"
+						android:layout_width="88dp"
+						android:layout_height="88dp"
+						android:scaleType="centerCrop"
+						android:src="@drawable/ic_group"
+						app:siBorderColor="@color/gray"
+						app:siBorderWidth="2dp"
+						tools:src="@drawable/anton" />
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/text_container"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_marginEnd="10dp"
+					android:layout_marginStart="10dp"
+					android:layout_weight="1"
+					android:orientation="vertical">
+
+					<com.devspark.robototextview.widget.RobotoTextView
+						android:id="@+id/authors_name"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="bottom"
+						android:textColor="@android:color/black"
+						android:textSize="18sp"
+						app:robotoTypeface="roboto_slab_bold"
+						tools:text="Антон Долин" />
+
+					<com.devspark.robototextview.widget.RobotoTextView
+						android:id="@+id/author_post"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="bottom"
+						android:textColor="@android:color/black"
+						android:textSize="15sp"
+						app:robotoTypeface="roboto_slab_regular"
+						tools:text="журналист, кинокритик" />
+
+				</LinearLayout>
+
+
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:background="@android:color/holo_red_dark" />
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/opinion"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			tools:text="@string/opinion" />
+
+	</LinearLayout>
+</ScrollView>

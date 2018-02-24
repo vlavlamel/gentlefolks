@@ -1,5 +1,6 @@
 package com.example.gentlefolks.presentation.opinionsScreen;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.example.gentlefolks.R;
 import com.example.gentlefolks.presentation.base.BaseActivity;
+import com.example.gentlefolks.presentation.base.BaseActivityWithFragment;
+import com.example.gentlefolks.presentation.details.DetailsFragment;
 import com.example.gentlefolks.presentation.mainScreen.opinionslist.OpinionsGridFragment;
 import com.squareup.picasso.Picasso;
 
@@ -21,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
 
-public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiModel> {
+public class OpinionsActivity extends BaseActivityWithFragment<OpinionUiEvent, OpinionUiModel> implements OpinionClickListener {
 
 	@BindView(R.id.recyclerView)
 	RecyclerView mRecyclerView;
@@ -39,7 +42,7 @@ public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiMode
 		textView.setText(getIntent().getStringExtra(OpinionsGridFragment.HASHTAG_KEY));
 		setSupportActionBar(mToolbar);
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-		adapter = new OpinionAdapter();
+		adapter = new OpinionAdapter(this);
 		mRecyclerView.setAdapter(adapter);
 		sendEvent(new OpinionUiEvent(getIntent().getStringExtra(OpinionsGridFragment.OPINION_ID_KEY)));
 	}
@@ -49,11 +52,20 @@ public class OpinionsActivity extends BaseActivity<OpinionUiEvent, OpinionUiMode
 		return new Consumer<OpinionUiModel>() {
 			@Override
 			public void accept(OpinionUiModel opinionUiModel) throws Exception {
+				List<Opinion> opinions = new ArrayList<>(opinionUiModel.getOpinionList());
 				Opinion header = new Opinion(getIntent().getStringExtra(OpinionsGridFragment.IMAGE_KEY), getIntent().getStringExtra(OpinionsGridFragment.TITLE_KEY));
-				opinionUiModel.getOpinionList()
-					.add(0, header);
-				adapter.setData(opinionUiModel.getOpinionList());
+				opinions.add(0, header);
+				adapter.setData(opinions);
 			}
 		};
+	}
+
+	@Override
+	public void onClick(Opinion opinion) {
+		getSupportFragmentManager().beginTransaction()
+			.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+			.add(android.R.id.content, DetailsFragment.getInstance(opinion))
+			.addToBackStack(null)
+			.commitAllowingStateLoss();
 	}
 }

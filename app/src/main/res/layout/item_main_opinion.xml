@@ -16,7 +16,7 @@
 		android:id="@+id/item_main_image"
 		android:layout_width="match_parent"
 		android:layout_height="210dp"
-		android:alpha="0.6"
+		android:alpha="0.2"
 		android:scaleType="centerCrop" />
 
 	<com.devspark.robototextview.widget.RobotoTextView
@@ -25,7 +25,7 @@
 		android:layout_height="wrap_content"
 		android:layout_margin="10dp"
 		android:textAllCaps="true"
-		android:textColor="@android:color/holo_red_dark"
+		android:textColor="@android:color/black"
 		tools:text="#искусство" />
 
 	<com.devspark.robototextview.widget.RobotoTextView
@@ -36,7 +36,7 @@
 		android:layout_margin="10dp"
 		android:gravity="center"
 		android:textAllCaps="true"
-		android:textColor="@android:color/black"
+		android:textColor="@android:color/holo_red_dark"
 		app:robotoTypeface="roboto_bold"
 		tools:text="С чем связана шумиха вокруг Матильды?" />
 

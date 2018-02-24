@@ -3,12 +3,14 @@ package com.example.gentlefolks.presentation.opinionsScreen;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Created by vl.melnikov on 19.11.17.
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Opinion {
+public class Opinion implements Serializable {
 
 	@JsonProperty("author_name")
 	public String authorName;
@@ -20,6 +22,7 @@ public class Opinion {
 	public String profilePhoto;
 	@JsonProperty("quote")
 	public String quote;
+	public String likes;
 
 	public transient int itemType;
 	public transient String pictureOpinion;

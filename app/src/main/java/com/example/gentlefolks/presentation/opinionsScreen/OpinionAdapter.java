@@ -29,10 +29,15 @@ public class OpinionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 	private final int ITEM_BASE = 0;
 
 	private List<Opinion> listOpinions;
+	private OpinionClickListener opinionClickListener;
 
 	public void setData(List<Opinion> listOpinions) {
 		this.listOpinions = listOpinions;
 		notifyDataSetChanged();
+	}
+
+	public OpinionAdapter(OpinionClickListener opinionClickListener) {
+		this.opinionClickListener = opinionClickListener;
 	}
 
 	@Override
@@ -53,7 +58,7 @@ public class OpinionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 		if (getItemViewType(position) == ITEM_BASE) {
 			((ViewHolder) holder).onBind(position);
-		} else if (getItemViewType(position) == ITEM_HEADER){
+		} else if (getItemViewType(position) == ITEM_HEADER) {
 			((HeaderViewHolder) holder).onBind(position);
 		}
 	}
@@ -87,6 +92,8 @@ public class OpinionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 		RobotoTextView mAuthorPost;
 		@BindView(R.id.quote)
 		RobotoTextView mQuote;
+		@BindView(R.id.read_more)
+		RobotoTextView readMore;
 
 		public ViewHolder(View view) {
 			super(view);
@@ -94,24 +101,20 @@ public class OpinionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 		}
 
 		public void onBind(int position) {
-			Opinion opinion = listOpinions.get(position);
+			final Opinion opinion = listOpinions.get(position);
 			mAuthorsName.setText(opinion.authorName);
 			mQuote.setText(opinion.quote);
 			Picasso.with(mProfileImage.getContext())
 				.load(opinion.profilePhoto)
-				.into(mProfileImage, new Callback() {
-					@Override
-					public void onSuccess() {
-
-					}
-
-					@Override
-					public void onError() {
-
-					}
-				});
-			mQuantityLikes.setText("300");
+				.into(mProfileImage);
+			mQuantityLikes.setText(opinion.likes);
 			mAuthorPost.setText(opinion.authorPost);
+			readMore.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					opinionClickListener.onClick(opinion);
+				}
+			});
 		}
 	}
 
@@ -132,17 +135,7 @@ public class OpinionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 			mName.setText(opinion.nameOpinion);
 			Picasso.with(mPictures.getContext())
 				.load(opinion.pictureOpinion)
-				.into(mPictures, new Callback() {
-					@Override
-					public void onSuccess() {
-
-					}
-
-					@Override
-					public void onError() {
-
-					}
-				});
+				.into(mPictures);
 		}
 	}
 
