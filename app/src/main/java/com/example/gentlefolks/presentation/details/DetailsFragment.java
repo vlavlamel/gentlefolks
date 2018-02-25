@@ -1,14 +1,21 @@
 package com.example.gentlefolks.presentation.details;
 
-import android.graphics.Path;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.devspark.robototextview.widget.RobotoTextView;
@@ -18,6 +25,9 @@ import com.example.gentlefolks.presentation.mainScreen.answerslist.Answer;
 import com.example.gentlefolks.presentation.opinionsScreen.Opinion;
 import com.github.siyamed.shapeimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +58,11 @@ public class DetailsFragment extends BaseFragment<DetailsUiEvent, DetailsUiModel
 	@BindView(R.id.opinion)
 	TextView mOpinion;
 	Unbinder unbinder;
+	@BindView(R.id.scrollview)
+	ScrollView mScrollview;
+	@BindView(R.id.container)
+	LinearLayout mContainer;
+
 
 	public static DetailsFragment getInstance(Opinion opinion) {
 		Bundle bundle = new Bundle();

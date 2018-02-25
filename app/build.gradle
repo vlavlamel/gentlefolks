@@ -76,5 +76,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
         transitive = true;
     }
+	compile "com.andkulikov:transitionseverywhere:1.7.8"
 }
 apply plugin: 'com.google.gms.google-services'
